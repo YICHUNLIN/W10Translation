@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace W10Translation
 {
     public partial class _mainForm : Form
     {
-        public Model _model;
+        private Model _model;
+
         public _mainForm()
         {
             InitializeComponent();
@@ -21,6 +23,8 @@ namespace W10Translation
             try
             {
                 _model = new Model("D:/credential.json");
+               // Thread resultThread = new Thread(ResultThreadCallback);
+               // resultThread.Start();
             }
             catch(Exception e)
             {
@@ -31,23 +35,31 @@ namespace W10Translation
         private void _oriEnglishTB_TextChanged(object sender, EventArgs e)
         {
             _resultTB.Text = _model.doTranslate(_oriEnglishTB.Text);
-        }
-
-        
-
-        private void _oriEnglishTB_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-
-        }
-
-        private void _oriEnglishTB_KeyDown(object sender, KeyEventArgs e)
-        {
-
-            if (e.Control && e.KeyCode == Keys.A)
+           /* if (this.udateEvent != null)
             {
-                if (sender != null)
-                    ((TextBox)sender).SelectAll();
-            }
+                this.Invoke(this.udateEvent, _model.doTranslate(_oriEnglishTB.Text));
+            }*/
         }
+
+        private void ResultThreadCallback()
+        {
+            ResultForm rf = new ResultForm(this);
+            rf.ShowDialog();
+        }
+
+        private void _clrBtn_Click(object sender, EventArgs e)
+        {
+            _oriEnglishTB.Text = "";
+        }
+
+        private void _mainForm_Load(object sender, EventArgs e)
+        {
+            TopMost = true;
+        }
+
+        public delegate void UpdateResultDelegate(string s);
+
+        public event UpdateResultDelegate udateEvent;
+
     }
 }

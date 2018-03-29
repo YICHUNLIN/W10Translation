@@ -48,10 +48,8 @@ namespace W10Translation
                     {
                         throw e;
                     }
-
                 }
             }
-
             return result;
         }
     }

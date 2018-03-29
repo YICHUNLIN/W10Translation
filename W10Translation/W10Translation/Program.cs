@@ -20,12 +20,17 @@ namespace W10Translation
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new _mainForm());
+                _mainForm mf = new _mainForm();
+                mf.TopMost = true;
+                Application.Run(mf);
+
             }
             else
             {
                 MessageBox.Show("D:/credential.json 不存在 或 Google API 驗證有問題 或 其他問題");
             }
         }
+
+
     }
 }
