@@ -24,7 +24,7 @@ namespace W10Translation
             }
             else
             {
-                MessageBox.Show("D:/credential.json 不存在 或 Google API 驗證有問題 或 其他問題 哈哈哈");
+                MessageBox.Show("D:/credential.json 不存在 或 Google API 驗證有問題 或 其他問題");
             }
         }
     }

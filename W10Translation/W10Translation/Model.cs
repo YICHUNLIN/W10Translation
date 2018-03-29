@@ -19,7 +19,14 @@ namespace W10Translation
         public Model(string gc)
         {
             _google_application_credentials = gc;
-            _client = TranslationClient.Create(GoogleCredential.FromJson(File.ReadAllText(_google_application_credentials)));  
+            try
+            {
+                _client = TranslationClient.Create(GoogleCredential.FromJson(File.ReadAllText(_google_application_credentials)));
+            }
+            catch(Exception e)
+            {
+                throw e;
+            } 
         }
         
         /**
