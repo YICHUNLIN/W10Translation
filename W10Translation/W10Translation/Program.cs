@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace W10Translation
 {
@@ -14,9 +15,17 @@ namespace W10Translation
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new _mainForm());
+
+            if (File.Exists("D:/credential.json"))
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new _mainForm());
+            }
+            else
+            {
+                MessageBox.Show("D:/credential.json 不存在 或 Google API 驗證有問題 或 其他問題 哈哈哈");
+            }
         }
     }
 }

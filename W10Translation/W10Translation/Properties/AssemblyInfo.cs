@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // 變更這些屬性的值即可修改組件的相關
 // 資訊。
 [assembly: AssemblyTitle("文獻翻譯神器")]
-[assembly: AssemblyDescription("應該蠻好用的")]
+[assembly: AssemblyDescription("D:/credential.json")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Vic Lin Tech")]
 [assembly: AssemblyProduct("文獻翻譯神器")]

@@ -18,7 +18,7 @@ namespace W10Translation
             InitializeComponent();
             //永遠保持最上面
             TopMost = true;
-            _model = new Model("C:/Users/vic/Documents/GitHub/W10Translation/W10Translation/windowsFormDesktopApp-4d2e479727c9.json");
+            _model = new Model("D:/credential.json");
         }
 
         private void _oriEnglishTB_TextChanged(object sender, EventArgs e)
