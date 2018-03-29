@@ -39,8 +39,15 @@ namespace W10Translation
             {
                 if(oristring != "")
                 {
-                    TranslationResult tr = _client.TranslateText(oristring, LanguageCodes.ChineseTraditional);
-                    result = tr.TranslatedText;
+                    try
+                    {
+                        TranslationResult tr = _client.TranslateText(oristring, LanguageCodes.ChineseTraditional);
+                        result = tr.TranslatedText;
+                    }
+                    catch(Exception e)
+                    {
+                        throw e;
+                    }
 
                 }
             }
