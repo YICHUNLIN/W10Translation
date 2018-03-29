@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 組件的一般資訊是由下列的屬性集控制。
 // 變更這些屬性的值即可修改組件的相關
 // 資訊。
-[assembly: AssemblyTitle("W10Translation")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("文獻翻譯神器")]
+[assembly: AssemblyDescription("應該蠻好用的")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("W10Translation")]
+[assembly: AssemblyCompany("Vic Lin Tech")]
+[assembly: AssemblyProduct("文獻翻譯神器")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
