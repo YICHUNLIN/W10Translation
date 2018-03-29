@@ -33,7 +33,21 @@ namespace W10Translation
             _resultTB.Text = _model.doTranslate(_oriEnglishTB.Text);
         }
 
+        
 
+        private void _oriEnglishTB_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
 
+        }
+
+        private void _oriEnglishTB_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            if (e.Control && e.KeyCode == Keys.A)
+            {
+                if (sender != null)
+                    ((TextBox)sender).SelectAll();
+            }
+        }
     }
 }

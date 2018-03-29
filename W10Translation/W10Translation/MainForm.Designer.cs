@@ -37,17 +37,19 @@
             // 
             // _oriEnglishTB
             // 
-            this._oriEnglishTB.Location = new System.Drawing.Point(16, 25);
+            this._oriEnglishTB.Location = new System.Drawing.Point(16, 26);
             this._oriEnglishTB.Multiline = true;
             this._oriEnglishTB.Name = "_oriEnglishTB";
             this._oriEnglishTB.Size = new System.Drawing.Size(230, 250);
             this._oriEnglishTB.TabIndex = 0;
             this._oriEnglishTB.TextChanged += new System.EventHandler(this._oriEnglishTB_TextChanged);
+            this._oriEnglishTB.KeyDown += new System.Windows.Forms.KeyEventHandler(this._oriEnglishTB_KeyDown);
+            this._oriEnglishTB.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this._oriEnglishTB_PreviewKeyDown);
             // 
             // _engLB
             // 
             this._engLB.AutoSize = true;
-            this._engLB.Location = new System.Drawing.Point(197, 10);
+            this._engLB.Location = new System.Drawing.Point(197, 11);
             this._engLB.Name = "_engLB";
             this._engLB.Size = new System.Drawing.Size(49, 12);
             this._engLB.TabIndex = 1;
@@ -55,7 +57,7 @@
             // 
             // _resultTB
             // 
-            this._resultTB.Location = new System.Drawing.Point(291, 25);
+            this._resultTB.Location = new System.Drawing.Point(291, 26);
             this._resultTB.Multiline = true;
             this._resultTB.Name = "_resultTB";
             this._resultTB.Size = new System.Drawing.Size(276, 250);
@@ -64,7 +66,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(291, 9);
+            this.label1.Location = new System.Drawing.Point(291, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 12);
             this.label1.TabIndex = 3;
@@ -74,7 +76,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Enabled = false;
-            this.label2.Location = new System.Drawing.Point(256, 138);
+            this.label2.Location = new System.Drawing.Point(256, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 4;
