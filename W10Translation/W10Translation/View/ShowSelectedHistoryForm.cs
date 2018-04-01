@@ -10,18 +10,14 @@ using System.Windows.Forms;
 
 namespace W10Translation
 {
-    public partial class ResultForm : Form
+    public partial class ShowSelectedHistoryForm : Form
     {
-        
-        public ResultForm(_mainForm form)
+        public ShowSelectedHistoryForm(Query q)
         {
             InitializeComponent();
-            form.udateEvent += new _mainForm.UpdateResultDelegate(UploadeTextBox);
-        }
+            _oriTB.Text = q.Ori;
+            _resultTB.Text = q.Result;
 
-        public void UploadeTextBox(string s)
-        {
-            _resultTB.Text = s;
         }
     }
 }

@@ -12,11 +12,11 @@ using System.IO;
 namespace W10Translation
 {
 
-    public class Model
+    public class ApiClient
     {
         private string _google_application_credentials = "";
         private TranslationClient _client = null;
-        public Model(string gc)
+        public ApiClient(string gc)
         {
             _google_application_credentials = gc;
             try
@@ -32,9 +32,8 @@ namespace W10Translation
         /**
          執行轉換
              */
-        public string doTranslate(string oristring)
+        public Query doTranslate(string oristring)
         {
-            string result = "";
             if (_client != null)
             {
                 if(oristring != "")
@@ -42,15 +41,17 @@ namespace W10Translation
                     try
                     {
                         TranslationResult tr = _client.TranslateText(oristring, LanguageCodes.ChineseTraditional);
-                        result = tr.TranslatedText;
+                        return new Query(oristring, tr.TranslatedText);
                     }
                     catch(Exception e)
                     {
                         throw e;
                     }
                 }
+
             }
-            return result;
+            return null;
+            
         }
     }
 }

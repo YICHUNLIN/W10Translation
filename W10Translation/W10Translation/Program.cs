@@ -15,19 +15,20 @@ namespace W10Translation
         [STAThread]
         static void Main()
         {
-
-            if (File.Exists("D:/credential.json"))
+            string path = "C:/ProgramData/VicTranslation/credential.json";
+            string logPath = "C:/ProgramData/VicTranslation";
+            if (File.Exists(path))
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                _mainForm mf = new _mainForm();
+                MainForm mf = new MainForm(path, logPath);
                 mf.TopMost = true;
                 Application.Run(mf);
 
             }
             else
             {
-                MessageBox.Show("D:/credential.json 不存在 或 Google API 驗證有問題 或 其他問題");
+                MessageBox.Show("C:/ProgramData/credential.json 不存在 或 Google API 驗證有問題 或 其他問題");
             }
         }
 
