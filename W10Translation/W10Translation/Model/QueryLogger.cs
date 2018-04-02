@@ -23,33 +23,6 @@ namespace W10Translation
             }
         }
         
-        public void addLog(Query q)
-        {
-            if (File.Exists(_logpath+"/log.txt"))
-            {
-                StreamWriter file = new StreamWriter(_logpath + "/log.txt", true);
-                file.WriteLine(q.ToString());
-                file.Close();
-            }
-            else
-            {
-                File.WriteAllText(_logpath+ "/log.txt", q.ToString());
-            }
-        }
-
-        public List<Query> LoadQueryLog()
-        {
-            if (!File.Exists(_logpath + "/log.txt"))
-                return new List<Query>();
-            List<Query> ql = new List<Query>();
-            
-            foreach(string line in File.ReadLines(_logpath + "/log.txt"))
-            {
-                ql.Add(new Query(line));
-            }
-            return ql;
-        }
-        
         public void addQueryLogXml(Query q)
         {
             //要用thread

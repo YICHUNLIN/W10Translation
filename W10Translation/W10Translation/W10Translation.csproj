@@ -134,6 +134,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Config.cs" />
     <Compile Include="Model\DataModel.cs" />
     <Compile Include="View\HistoryForm.cs">
       <SubType>Form</SubType>

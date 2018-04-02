@@ -88,7 +88,6 @@ namespace W10Translation
             _counterPath = path;
             _counter = new QCounter(QCounter.getCounter(path));
             _ql = new QueryLogger(path);
-            //_qs = new List<Query>(_ql.LoadQueryLog());
             _qs = _ql.LoadQueryLogXml();
         }
         

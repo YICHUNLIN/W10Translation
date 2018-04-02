@@ -15,8 +15,10 @@ namespace W10Translation
         [STAThread]
         static void Main()
         {
-            string path = "C:/ProgramData/VicTranslation/credential.json";
-            string logPath = "C:/ProgramData/VicTranslation";
+            Config config = new Config();
+
+            string path = config.FullCredential;
+            string logPath = config.Configxml.LogPath;
             if (File.Exists(path))
             {
                 Application.EnableVisualStyles();
