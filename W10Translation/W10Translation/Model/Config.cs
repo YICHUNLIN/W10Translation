@@ -7,68 +7,26 @@ using System.IO;
 
 namespace W10Translation
 {
-    public class ConfigXml
-    {
-        private string _lp;
-        private string _cd;
-        private string _cdName = "";
-        public string LogPath
-        {
-            get
-            {
-                return _lp;
-            }
-            set
-            {
-                _lp = value;
-            }
-        }
-        public string CredentialName
-        {
-            get
-            {
-                return _cdName;
-            }
-            set
-            {
-                _cdName = value;
-            }
-        }
-        public string CredentialPath
-        {
-            get
-            {
-                return _cd;
-            }
-            set
-            {
-                _cd = value;
-            }
-        }
-        public ConfigXml(string lp, string cd, string cdname)
-        {
-            _lp = lp;
-            _cd = cd;
-            _cdName = cdname;
-        }
-        public ConfigXml()
-        {}
-    }
-
-    public class Config
+    public class Configer
     {
         private string _bathpath = "C:/ProgramData";
         private string _dir = "VicTranslation";
         private string _configDir = "";
         private string _configName = "config.xml";
+        private string _settingConfigName = "setting.xml";
         private ConfigXml _cx = null;
-        public Config()
+        private SettingXml _sx = null;
+        public Configer()
         {
             _configDir = _bathpath + "/" + _dir;
             createVicTranslationDir();
-            _cx = getConfig();
+            _cx = (ConfigXml)(new ConfigXml().getConfigObject(_configDir, _configName));
+            _sx = (SettingXml)(new SettingXml().getConfigObject(_configDir , _settingConfigName));
         }
 
+        /**
+         產生程式資料夾
+             */
         private void createVicTranslationDir()
         {
             if (!Directory.Exists(_configDir))
@@ -85,6 +43,14 @@ namespace W10Translation
             }
         }
 
+        public SettingXml SettingConfigxml
+        {
+            get
+            {
+                return _sx;
+            }
+        }
+
         public string FullCredential
         {
             get
@@ -93,31 +59,14 @@ namespace W10Translation
             }
         }
 
-        private ConfigXml getConfig()
+        /**
+         儲存setting xml檔
+             */
+        public void SaveSettingXml()
         {
-            string ph = _configDir + "/" + _configName;
-            if (File.Exists(ph))
-            {
-                System.Xml.Serialization.XmlSerializer reader = new System.Xml.Serialization.XmlSerializer(typeof(ConfigXml));
-                System.IO.StreamReader r = new System.IO.StreamReader(ph);
-                ConfigXml cx = (ConfigXml)reader.Deserialize(r);
-                r.Close();
-                return cx;
-            }
-
-            return this.initConfig();
+            string path = _configDir + "/" + _settingConfigName;
+            _sx.Save(path);
         }
-
-        private ConfigXml initConfig()
-        {
-            ConfigXml cx = new ConfigXml(_configDir, _configDir, "credential.json");
-            System.Xml.Serialization.XmlSerializer writer = new System.Xml.Serialization.XmlSerializer(typeof(ConfigXml));
-            System.IO.FileStream file = System.IO.File.Create(_configDir + "/" + _configName);
-            writer.Serialize(file, cx);
-            file.Close();
-            return cx;
-        }
-
-
+        
     }
 }

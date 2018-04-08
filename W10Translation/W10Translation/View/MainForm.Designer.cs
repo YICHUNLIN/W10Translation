@@ -35,6 +35,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.清除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this._historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this._settingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,7 +82,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.清除ToolStripMenuItem,
-            this._historyToolStripMenuItem});
+            this._historyToolStripMenuItem,
+            this._settingMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(431, 24);
@@ -101,6 +103,13 @@
             this._historyToolStripMenuItem.Size = new System.Drawing.Size(91, 20);
             this._historyToolStripMenuItem.Text = "歷史查詢紀錄";
             this._historyToolStripMenuItem.Click += new System.EventHandler(this._historyToolStripMenuItem_Click);
+            // 
+            // _settingMenuItem
+            // 
+            this._settingMenuItem.Name = "_settingMenuItem";
+            this._settingMenuItem.Size = new System.Drawing.Size(67, 20);
+            this._settingMenuItem.Text = "翻譯模式";
+            this._settingMenuItem.Click += new System.EventHandler(this._settingMenuItem_Click);
             // 
             // MainForm
             // 
@@ -134,6 +143,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 清除ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem _historyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem _settingMenuItem;
     }
 }
 

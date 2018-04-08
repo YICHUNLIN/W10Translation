@@ -15,15 +15,13 @@ namespace W10Translation
         [STAThread]
         static void Main()
         {
-            Config config = new Config();
-
-            string path = config.FullCredential;
-            string logPath = config.Configxml.LogPath;
-            if (File.Exists(path))
+            Configer config = new Configer();
+            
+            if (File.Exists(config.FullCredential))
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                MainForm mf = new MainForm(path, logPath);
+                MainForm mf = new MainForm(config);
                 mf.TopMost = true;
                 Application.Run(mf);
 
